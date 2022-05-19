@@ -1,0 +1,17 @@
+{
+  "name": "lab01_arrays",
+  "version": "1.0.0",
+  "description": "[TOC]",
+  "main": "arrays.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.1.0",
+    "rewire": "^6.0.0"
+  }
+}
+
