@@ -157,7 +157,7 @@ console.assert(arrayProduct([1, 2, 3, 4]) === 24, 'arrayProduct([1,2,3,4]) === 2
 console.log();
 console.log('Testing : arrayCommon([1,2,3,2,1], [2,2,3,3,4])');
 console.log('Received:', arraysCommon([1, 2, 3, 2, 1], [2, 2, 3, 3, 4]));
-console.log('Expected: [2,3,2]');
+console.log('Expected: [ 2, 3, 2 ]');
 console.log();
 
 // TODO: your own testing/debugging here
