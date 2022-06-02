@@ -117,8 +117,9 @@ function arraysMultiply(array1, array2) {
  * Create a third array containing common elements between two arrays.
  *
  * Each element in the first array can map to at most one element
- * in the second array. Duplicated elements in each array are
- * treated as separate entities.
+ * in the second array, and vice versa (one-to-one relationship).
+ * 
+ * Duplicated elements in each array are treated as separate entities.
  *
  * The order is determined by the first array.
  *
