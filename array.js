@@ -6,7 +6,11 @@
  * @returns {number} the sum of the array
  */
 function arraySum(array) {
-  return -999;
+  let sum = 0;
+  for (i in array) {
+    sum += array[i];
+  }
+  return sum;
 }
 
 /**
@@ -17,7 +21,11 @@ function arraySum(array) {
  * @returns {number} the product of the array
  */
 function arrayProduct(array) {
-  return -999;
+  let product = 1; 
+  for (i in array) {
+    product *= array[i];
+  }
+  return product;
 }
 
 /**
@@ -28,7 +36,17 @@ function arrayProduct(array) {
  * null if the array is empty
  */
 function arrayMin(array) {
-  return -999;
+  let min = null;
+  for (let i = 0; i < array.length; i++) {
+    if (i === 0) {
+      min = array[i];
+    }
+    if (array[i] < min) {
+      min = array[i];
+    }
+  }
+
+  return min;
 }
 
 /**
@@ -39,7 +57,17 @@ function arrayMin(array) {
  * null if the array is empty
  */
 function arrayMax(array) {
-  return -999;
+  let max = null;
+  for (let i = 0; i < array.length; i++) {
+    if (i === 0) {
+      max = array[i];
+    }
+    if (array[i] > max) {
+      max = array[i];
+    }
+  }
+
+  return max;
 }
 
 /**
@@ -51,7 +79,17 @@ function arrayMax(array) {
  */
 function arrayContains(array, item) {
   // FIXME: true or false instead of null
-  return null;
+  /*for (i in array) {
+    if (array[i] === item) {
+      return true;
+    }
+  }
+  return false;*/
+  if (array.includes(item)) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /**
@@ -64,7 +102,11 @@ function arrayContains(array, item) {
  * @returns {Array<number>} a new reversed array
  */
 function arrayReversed(array) {
-  return [-999, -888, -777];
+  let reverse = [];
+  for (let i = 0; i < array.length; i++) {
+    reverse[array.length - 1 - i] = array[i];
+  }
+  return reverse;
 }
 
 /**
@@ -75,7 +117,10 @@ function arrayReversed(array) {
  * or null if the array is empty
  */
 function arrayHead(array) {
-  return -999;
+  if (array[0] === undefined) {
+    return null;
+  }
+  return array[0];
 }
 
 /**
@@ -89,7 +134,14 @@ function arrayHead(array) {
  * or null array is empty
  */
 function arrayTail(array) {
-  return [-888, -777];
+  if (array.length === 0) {
+    return null;
+  }
+  let tail = [];
+  for (let i = 1; i < array.length; i++) {
+    tail[i - 1] = array[i];
+  }
+  return tail;
 }
 
 /**
@@ -110,8 +162,34 @@ function arrayTail(array) {
  * @returns {Array<number>} array1 x array2 at each index
  */
 function arraysMultiply(array1, array2) {
-  return [-999, -888, -777];
+  let result = [];
+  let length;
+  let diff;
+  if (array1.length > array2.length) {
+    length = array1.length;
+    result = [array1.length];
+    diff = array1.length - array2.length;
+    for (let i = length - diff; i < array1.length; i++) {
+      result[i] = array1[i];      
+    }
+  } else if (array1.length < array2.length) {
+    length = array2.length;
+    result = [array2.length];
+    diff = array2.length - array1.length;
+    for (let i = length - diff; i < array2.length; i++) {
+      result[i] = array2[i];
+    }
+  } else {
+    length = array1.length;
+    diff = 0;
+  }
+
+  for (let i = 0; i < length - diff; i++) {
+    result[i] = array1[i] * array2[i];
+  }
+  return result;
 }
+
 
 /**
  * Create a third array containing common elements between two arrays.
@@ -137,7 +215,19 @@ function arraysMultiply(array1, array2) {
  * @returns {Array<number>} number of common elements between two arrays
  */
 function arraysCommon(array1, array2) {
-  return [-999, -888, -777];
+  let arrA = array1;
+  let arrB = array2;
+  let result = [];
+  for (let i = 0; i < arrA.length; i++) {
+    for (let j = 0; j < arrB.length; j++) {
+      if (arrA[i] === arrB[j]) {
+        result.push(arrA[i]);
+        arrB[j] = null;
+        break;
+      }
+    }
+  }
+  return result;
 }
 
 // ========================================================================= //
@@ -145,19 +235,80 @@ function arraysCommon(array1, array2) {
 /**
  * Some test code
  */
-
+//arraySum
 console.assert(arraySum([1, 2, 3, 4]) === 10, 'arraySum([1,2,3,4]) === 10');
+console.assert(arraySum([]) === 0, 'arraySum([]) === 0');
+//arrayProduct
 console.assert(arrayProduct([1, 2, 3, 4]) === 24, 'arrayProduct([1,2,3,4]) === 24');
+console.assert(arrayProduct([]) === 1, 'arrayProduct([]) === 1');
+//arrayMin
+console.assert(arrayMin([1, 2, 3, 4]) === 1, 'arrayMin([1,2,3,4]) === 1');
+console.assert(arrayMin([110,90,70,20,50]) === 20, 'arrayMin([110,90,70,20,50]) === 20');
+console.assert(arrayMin([]) === null, 'arrayMin([]) === null');
+//arrayMax
+console.assert(arrayMax([1, 2, 3, 4]) === 4, 'arrayMax([1,2,3,4]) === 4');
+console.assert(arrayMax([]) === null, 'arrayMax([]) === null');
+//arrayContains
+console.assert(arrayContains([2,2,3,3,4], 2) === true, 'arrayContains([2,2,3,3,4], 2) === true');
+console.assert(arrayContains([2,2,3,3,4], 80) === false, 'arrayContains([2,2,3,3,4], 80) === false');
+console.assert(arrayContains([], 2) === false, 'arrayContains([], 2) === false');
+//arrayReversed
+console.log();
+console.log('Testing : arrayReversed([1,2,3,4])');
+console.log('Received:', arrayReversed([1,2,3,4]));
+console.log('Expected: [ 4, 3, 2, 1 ]');
+console.log();
+console.log('Testing : arrayReversed([])');
+console.log('Received:', arrayReversed([]));
+console.log('Expected: []');
+console.log('----------------------------------------');
+//arrayHead
+console.assert(arrayHead([1,2,3,4]) === 1, 'arrayHead([1,2,3,4]) === 1');
+console.assert(arrayHead([]) === null, 'arrayHead([]) === null');
+//arrayTail
+console.log();
+console.log('Testing : arrayTail([1,2,3,4])');
+console.log('Received:', arrayTail([1,2,3,4]));
+console.log('Expected: [ 2, 3, 4 ]');
+console.log();
+console.log('Testing : arrayTail([])');
+console.log('Received:', arrayTail([]));
+console.log('Expected: null');
+console.log('----------------------------------------');
+//arraysMultiply
+console.log();
+console.log('Testing : arraysMultiply([1,3,2], [2,4,3,5,9])');
+console.log('Received:', arraysMultiply([1,3,2], [2,4,3,5,9]));
+console.log('Expected: [ 2, 12, 6, 5, 9 ]');
+console.log();
+console.log('Testing : arraysMultiply([2,4,3,5,9], [1,3,2])');
+console.log('Received:', arraysMultiply([2,4,3,5,9], [1,3,2]));
+console.log('Expected: [ 2, 12, 6, 5, 9 ]');
+console.log();
+console.log('Testing : arraysMultiply([1,3,2], [1,3,2])');
+console.log('Received:', arraysMultiply([1,3,2], [1,3,2]));
+console.log('Expected: [ 1, 9, 4 ]');
+console.log('----------------------------------------');
 
 /**
  * NOTE: you can't directly compare two arrays with `===`, so you may need
  * to come up with your own way of testing arrays this week. For example, you
  * could use console.log() and observe the output manually.
  */
+//arrayCommon
 console.log();
-console.log('Testing : arrayCommon([1,2,3,2,1], [2,2,3,3,4])');
-console.log('Received:', arraysCommon([1, 2, 3, 2, 1], [2, 2, 3, 3, 4]));
-console.log('Expected: [2,3,2]');
+console.log('Testing : arrayCommon([], [2,2,3,3,4])');
+console.log('Received:', arraysCommon([1,2,3,2,1], [2,2,3,3,4]));
+console.log('Expected: [2,3,2 ]');
+console.log();
+console.log('Testing : arrayCommon([], [2,2,3,3,4])');
+console.log('Received:', arraysCommon([], [2,2,3,3,4]));
+console.log('Expected: []');
+console.log();
+console.log('Testing : arrayCommon([60, 50, 1, 2, 3], [2,2,3,3,4, 50, 60])');
+console.log('Received:', arraysCommon([60, 50, 1, 2, 3], [2,2,3,3,4, 50, 60]));
+console.log('Expected: [ 60, 50, 2, 3 ]');
 console.log();
 
 // TODO: your own testing/debugging here
+// try .includes
