@@ -28,7 +28,7 @@ Introducing: Javascript arrays - these are perfect when dealing with an ordered 
 | `arrayMin`<br/><br/>Find the smallest number in the array. | (array) | `number` | Return `null` if the array is empty |
 | `arrayMax`<br/><br/>Find the largest number in the array. | (array) | `number` | Return `null` if the array is empty |
 | `arrayContains`<br/><br/>Determine if the array contains a particular integer element. | (array, item) | `boolean` | N/A |
-| `arrayReversed`<br/><br/>Create an array that is the reserved of the original. The original array should not be modified. | (array) | `number` | N/A | 
+| `arrayReversed`<br/><br/>Create an array that is the reserved of the original. The original array should not be modified. | (array) | `number[]`, or `Array<number>` | N/A | 
 | `arrayHead`<br/><br/>Returns the first element in the array. | (array) | `number` | Return `null` if the array is empty |
 | `arrayTail`<br/><br/>Returns all remaining elements in the array after the head. | (array) | `number[]`, or `Array<number>` | Return `null` if the array is empty |
 | `arraysMultiply`<br/><br/>Given two arrays, multiply the elements at each index from arrays and store the result in a third array.<br/><br/>If the given two arrays differ in length, excess elements of the larger array will be added on at the end. | (array1, array2) | `number[]`, or `Array<number>` | N/A
