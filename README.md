@@ -4,7 +4,7 @@
 
 ## Due Date
 
-Week 3 Monday 5:00 pm AEST
+Week 3 Tuesday 5:00 pm AEST (due to Monday being a public holiday)
 
 ## Background
 
